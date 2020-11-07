@@ -3,8 +3,19 @@
 
 == Requirements
 
- - Clojure 1.8.0
- - Java 1.8
+ - link:https://clojure.org/guides/getting_started[Clojure]
+ - link:https://www.java.com/en/download/[Java]
+ - link:https://nodejs.org/en/[Node]
+
+== Setup
+1. Clone repo and `cd cljs-template`
+1. `npm install`
+1. `npm start`
+1. Go to localhost:8080
+
+== Testing
+1. `npm test`
+1. Go to localhost:8021
 
 == License
 
@@ -20,12 +31,4 @@ with the link:https://cursive-ide.com/[*Cursive* Clojure plugin].
 image:resources/intellij-idea-logo-400.png[IntelliJ,200,200]
 
 image:resources/cursive-logo-300.png[Cursive]
-
-YourKit supports open source projects with its full-featured Java Profiler.
-YourKit, LLC is the creator of
-link:https://www.yourkit.com/java/profiler/[YourKit Java Profiler]
-and link:https://www.yourkit.com/.net/profiler/[YourKit .NET Profiler],
-innovative and intelligent tools for profiling Java and .NET applications.
-
-image:https://www.yourkit.com/images/yklogo.png[YourKit,400,400]
 
