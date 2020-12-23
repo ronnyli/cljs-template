@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link href="css/tailwind_custom.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style media="screen">
+
+    </style>
+  </head>
+  <body class="bg-white text-base">
+
+    <div class="flex justify-center items-center h-screen">
+      <div class="rounded-md bg-modal border border-modal-border shadow overflow-hidden" style="width:500px">
+        <!-- Header -->
+        <div class="px-4 pt-4 pb-6 bg-white flex justify-between items-center text-xs">
+          <div>
+            <button type="button" class="mr-2 uppercase tracking-wider focus:outline-none">Screener</button>
+            <button type="button" class="mr-2 uppercase tracking-wider focus:outline-none text-dark-soft">Ticker Search</button>
+          </div>
+
+          <button type="button" class="modal-close text-dark-soft"><!-- Replace with close icon component --> X</button>
+        </div>
+
+        <!-- Screener form -->
+        <form class="px-4 pb-4 bg-white border-b border-divider-light">
+          <div class="flex justify-between w-full mb-1">
+
+            <div class="group dropdown relative flex-grow w-full">
+              <!-- Button to activate options dropdown -->
+              <button type="button" class="input-light w-full flex justify-between items-center" aria-haspopup="true" aria-expanded="true">
+                <span class="value mr-2">Choose metric</span> <!-- Current selection -->
+
+                <svg class="h-4 w-4 text-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M4.22862 5.17133L3.28662 6.11467L7.99995 10.828L12.714 6.11467L11.7713 5.17133L7.99995 8.94267L4.22862 5.17133Z" />
+                </svg>
+
+              </button>
+
+              <!-- Options -->
+              <div class="pointer-events-none absolute z-50 left-0 mt-0 min-w-full rounded shadow bg-modal border border-modal-border overflow-hidden transition-all transform duration-100 opacity-0">
+                <div class="block relative px-2 py-1 text-dark hover:bg-input transition" role="menuitem">Price</div>
+                <div class="block relative px-2 py-1 text-dark hover:bg-input transition" role="menuitem">
+                  Returns
+
+                  <!-- Replace with check icon component -->
+                  <!-- Insert in currently selected option -->
+                  <svg class="absolute w-4 h-4 right-2 top-0 translate-y-1/2 transform text-dark-soft" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.25102 9.77419L3.97518 7.49835L3.2002 8.26788L6.25102 11.3187L12.8002 4.76952L12.0307 4L6.25102 9.77419Z" />
+                  </svg>
+
+                </div>
+                <div class="block relative px-2 py-1 text-dark hover:bg-input transition" role="menuitem">Market Cap</div>
+              </div>
+            </div>
+
+            <div class="group dropdown relative flex-grow-0 mx-1">
+              <!-- Button to activate options dropdown -->
+              <button type="button" class="input-light w-full flex justify-between items-center" aria-haspopup="true" aria-expanded="true">
+                <span class="value mr-2">></span> <!-- Current selection -->
+
+                <svg class="h-4 w-4 text-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M4.22862 5.17133L3.28662 6.11467L7.99995 10.828L12.714 6.11467L11.7713 5.17133L7.99995 8.94267L4.22862 5.17133Z" />
+                </svg>
+
+              </button>
+
+              <!-- Options -->
+              <div class="pointer-events-none absolute z-50 left-0 mt-0 min-w-full rounded shadow bg-modal border border-modal-border overflow-hidden transition-all transform duration-100 opacity-0">
+                <div class="block relative px-2 py-1 text-dark hover:bg-input transition" role="menuitem"><</div>
+                <div class="block relative px-2 py-1 text-dark hover:bg-input transition" role="menuitem">
+                  >
+
+                  <!-- Replace with check icon component -->
+                  <!-- Insert in currently selected option -->
+                  <svg class="absolute w-4 h-4 right-2 top-0 translate-y-1/2 transform text-dark-soft" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.25102 9.77419L3.97518 7.49835L3.2002 8.26788L6.25102 11.3187L12.8002 4.76952L12.0307 4L6.25102 9.77419Z" />
+                  </svg>
+
+                </div>
+                <div class="block relative px-2 py-1 text-dark hover:bg-input transition" role="menuitem">=</div>
+              </div>
+            </div>
+            <div class="flex-grow w-full">
+              <input type="text" placeholder="Enter value" class="text-base input-light w-full">
+            </div>
+          </div>
+          <div class="flex justify-between w-full mb-1">
+
+            <div class="group dropdown relative flex-grow w-full">
+              <!-- Button to activate options dropdown -->
+              <button type="button" class="input-light w-full flex justify-between items-center" aria-haspopup="true" aria-expanded="true">
+                <span class="value mr-2">Choose metric</span> <!-- Current selection -->
+
+                <svg class="h-4 w-4 text-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M4.22862 5.17133L3.28662 6.11467L7.99995 10.828L12.714 6.11467L11.7713 5.17133L7.99995 8.94267L4.22862 5.17133Z" />
+                </svg>
+
+              </button>
+
+              <!-- Options -->
+              <div class="pointer-events-none absolute z-50 left-0 mt-0 min-w-full rounded shadow bg-modal border border-modal-border overflow-hidden transition-all transform duration-100 opacity-0">
+                <div class="block relative px-2 py-1 text-dark hover:bg-input transition" role="menuitem">Price</div>
+                <div class="block relative px-2 py-1 text-dark hover:bg-input transition" role="menuitem">
+                  Returns
+
+                  <!-- Replace with check icon component -->
+                  <!-- Insert in currently selected option -->
+                  <svg class="absolute w-4 h-4 right-2 top-0 translate-y-1/2 transform text-dark-soft" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.25102 9.77419L3.97518 7.49835L3.2002 8.26788L6.25102 11.3187L12.8002 4.76952L12.0307 4L6.25102 9.77419Z" />
+                  </svg>
+
+                </div>
+                <div class="block relative px-2 py-1 text-dark hover:bg-input transition" role="menuitem">Market Cap</div>
+              </div>
+            </div>
+
+            <div class="group dropdown relative flex-grow-0 mx-1">
+              <!-- Button to activate options dropdown -->
+              <button type="button" class="input-light w-full flex justify-between items-center" aria-haspopup="true" aria-expanded="true">
+                <span class="value mr-2">></span> <!-- Current selection -->
+
+                <svg class="h-4 w-4 text-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M4.22862 5.17133L3.28662 6.11467L7.99995 10.828L12.714 6.11467L11.7713 5.17133L7.99995 8.94267L4.22862 5.17133Z" />
+                </svg>
+
+              </button>
+
+              <!-- Options -->
+              <div class="pointer-events-none absolute z-50 left-0 mt-0 min-w-full rounded shadow bg-modal border border-modal-border overflow-hidden transition-all transform duration-100 opacity-0">
+                <div class="block relative px-2 py-1 text-dark hover:bg-input transition" role="menuitem"><</div>
+                <div class="block relative px-2 py-1 text-dark hover:bg-input transition" role="menuitem">
+                  >
+
+                  <!-- Replace with check icon component -->
+                  <!-- Insert in currently selected option -->
+                  <svg class="absolute w-4 h-4 right-2 top-0 translate-y-1/2 transform text-dark-soft" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.25102 9.77419L3.97518 7.49835L3.2002 8.26788L6.25102 11.3187L12.8002 4.76952L12.0307 4L6.25102 9.77419Z" />
+                  </svg>
+
+                </div>
+                <div class="block relative px-2 py-1 text-dark hover:bg-input transition" role="menuitem">=</div>
+              </div>
+            </div>
+            <div class="flex-grow w-full">
+              <input type="text" placeholder="Enter value" class="text-base input-light w-full">
+            </div>
+          </div>
+
+          <button type"button" class="button-secondary-mini">+</button>
+
+          <!-- Count and shortcut add all -->
+          <div class="flex justify-between items-center mt-3 text-xs">
+            <span class="text-dark-soft">124 found</span>
+            <button type"button" class="button-secondary-mini"><!-- Replace with icon component -->+ Add All</button>
+          </div>
+        </form>
+
+        <!-- Results -->
+        <div class="divide-y divide-solid divide-divider-light overflow-auto" style="max-height:364px;">
+
+          <div class="group p-4 flex items-center justify-between transition-background duration-300 hover:bg-white">
+            <div class="">
+              <p class="font-medium">Company Name</p>
+              <div class="flex items-center mt-1 leading-none">
+                <span class="inline-block p-1 uppercase bg-asset rounded text-xs text-light tracking-wider">TICK</span>
+                <p class="ml-1">
+                  <span class="price"><span class="font-medium">$188.92</span> USD</span> &middot;
+                  <span class="exchange uppercase tracking-wider">NYSE</span> &middot;
+                  <span class="exchange">ETF</span>
+                <p>
+              </div>
+            </div>
+            <!-- Replace with plus icon component --><span class="group-hover:opacity-100 opacity-0 transition w-6 h-6">+</span>
+          </div>
+
+          <div class="group p-4 flex items-center justify-between transition-background duration-300 hover:bg-white">
+            <div class="">
+              <p class="font-medium">Company Name</p>
+              <div class="flex items-center mt-1 leading-none">
+                <span class="inline-block p-1 uppercase bg-asset rounded text-xs text-light tracking-wider">TICK</span>
+                <p class="ml-1">
+                  <span class="price"><span class="font-medium">$188.92</span> USD</span> &middot;
+                  <span class="exchange uppercase tracking-wider">NYSE</span> &middot;
+                  <span class="exchange">ETF</span>
+                <p>
+              </div>
+            </div>
+            <!-- Replace with plus icon component --><span class="group-hover:opacity-100 opacity-0 transition w-6 h-6">+</span>
+          </div>
+
+          <div class="group p-4 flex items-center justify-between transition-background duration-300 hover:bg-white">
+            <div class="">
+              <p class="font-medium">Company Name</p>
+              <div class="flex items-center mt-1 leading-none">
+                <span class="inline-block p-1 uppercase bg-asset rounded text-xs text-light tracking-wider">TICK</span>
+                <p class="ml-1">
+                  <span class="price"><span class="font-medium">$188.92</span> USD</span> &middot;
+                  <span class="exchange uppercase tracking-wider">NYSE</span> &middot;
+                  <span class="exchange">ETF</span>
+                <p>
+              </div>
+            </div>
+            <!-- Replace with plus icon component --><span class="group-hover:opacity-100 opacity-0 transition w-6 h-6">+</span>
+          </div>
+
+          <div class="group p-4 flex items-center justify-between transition-background duration-300 hover:bg-white">
+            <div class="">
+              <p class="font-medium">Company Name</p>
+              <div class="flex items-center mt-1 leading-none">
+                <span class="inline-block p-1 uppercase bg-asset rounded text-xs text-light tracking-wider">TICK</span>
+                <p class="ml-1">
+                  <span class="price"><span class="font-medium">$188.92</span> USD</span> &middot;
+                  <span class="exchange uppercase tracking-wider">NYSE</span> &middot;
+                  <span class="exchange">ETF</span>
+                <p>
+              </div>
+            </div>
+            <!-- Replace with plus icon component --><span class="group-hover:opacity-100 opacity-0 transition w-6 h-6">+</span>
+          </div>
+
+          <div class="group p-4 flex items-center justify-between transition-background duration-300 hover:bg-white">
+            <div class="">
+              <p class="font-medium">Company Name</p>
+              <div class="flex items-center mt-1 leading-none">
+                <span class="inline-block p-1 uppercase bg-asset rounded text-xs text-light tracking-wider">TICK</span>
+                <p class="ml-1">
+                  <span class="price"><span class="font-medium">$188.92</span> USD</span> &middot;
+                  <span class="exchange uppercase tracking-wider">NYSE</span> &middot;
+                  <span class="exchange">ETF</span>
+                <p>
+              </div>
+            </div>
+            <!-- Replace with plus icon component --><span class="group-hover:opacity-100 opacity-0 transition w-6 h-6">+</span>
+          </div>
+
+          <div class="group p-4 flex items-center justify-between transition-background duration-300 hover:bg-white">
+            <div class="">
+              <p class="font-medium">Company Name</p>
+              <div class="flex items-center mt-1 leading-none">
+                <span class="inline-block p-1 uppercase bg-asset rounded text-xs text-light tracking-wider">TICK</span>
+                <p class="ml-1">
+                  <span class="price"><span class="font-medium">$188.92</span> USD</span> &middot;
+                  <span class="exchange uppercase tracking-wider">NYSE</span> &middot;
+                  <span class="exchange">ETF</span>
+                <p>
+              </div>
+            </div>
+            <!-- Replace with plus icon component --><span class="group-hover:opacity-100 opacity-0 transition w-6 h-6">+</span>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var dd = document.querySelectorAll(".dropdown");
+      dd.forEach((item, i) => {
+        var button = item.children[0];
+        var optg = item.children[1];
+        var opts = optg.children;
+
+        button.addEventListener("click", function(e) {
+          e.preventDefault();
+
+          optg.classList.toggle("pointer-events-none");
+          optg.classList.toggle("mt-0");
+          optg.classList.toggle("opacity-0");
+          optg.classList.toggle("mt-1");
+          optg.classList.toggle("opacity-100");
+
+          if (optg.classList.contains("mt-0")) {
+            button.blur();
+          }
+        });
+
+        for (var i = 0; i < opts.length; i++) {
+          opts[i].addEventListener("click", function() {
+            button.children[0].innerText = this.innerText;
+            button.children[0].classList.add("text-dark");
+          })
+        };
+
+        optg.addEventListener("click", function() {
+          optg.classList.toggle("pointer-events-none");
+          optg.classList.toggle("mt-0");
+          optg.classList.toggle("opacity-0");
+          optg.classList.toggle("mt-1");
+          optg.classList.toggle("opacity-100");
+
+          button.blur();
+        });
+      });
+
+    </script>
+
+  </body>
+</html>
