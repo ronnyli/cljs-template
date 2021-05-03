@@ -8,42 +8,22 @@
   ^:figwheel-hooks ; metadata tells Figwheel.Main to find & call reload hook fn's are present
   demo.core
   (:require
-    [tupelo.core :as t]
+    [demo.commons.modal :as modal]
+    [demo.components.screener.view :as screener]
+    [demo.events :as events]
     [reagent.core :as r]
     [reagent.dom :as rdom]
+    [re-frame.core :as rf]
     ))
 
-(defn add2
-  "adds 2 numbers"
-  [x y]
-  (+ x y))
-
-; NOTE:  it seems this must be in a *.cljs file or it doesn't work on figwheel reloading
-(enable-console-print!)
-(println "
-  This text is printed from src/demo/core.cljs when it is loaded/reloaded.
-  Go ahead and edit it and see reloading in action. Again, or not.
-  ")
-(t/spyx :something (+ 2 3))
-(t/spyx (add2 3 4))
-
-;---------------------------------------------------------------------------------------------------
 (defn root []
-  [:div {:class "container"}
-   [:hr]
-   [:div
-    [:p "I am a component!"]
-    [:p.someclass
-     "I have " [:strong "bold"]
-     [:span {:style {:color "red"}} " and red"] " text."]]
-   [:hr]
-   [:div
-    [:p "Last paragraph....."]]])
+  [modal/view (screener/view)])
 
 (defn app-start!
   "Initiates the cljs application"
   []
   (println "app-start - enter")
-  (rdom/render [root] (js/document.getElementById "tgt-div"))
+  (rf/dispatch-sync [:initialize])
+  (rdom/render [root] (js/document.getElementById "app"))
   (println "app-start - leave"))
 

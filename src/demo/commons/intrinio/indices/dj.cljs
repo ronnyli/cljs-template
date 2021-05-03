@@ -1,0 +1,104 @@
+(ns demo.commons.intrinio.indices.dj)
+
+(def industrial
+  [{:ticker "MSFT"}
+   {:ticker "WMT"}
+   {:ticker "CVX"}
+   {:ticker "MRK"}
+   {:ticker "WBA"}
+   {:ticker "BA"}
+   {:ticker "INTC"}
+   {:ticker "AMGN"}
+   {:ticker "CRM"}
+   {:ticker "V"}
+   {:ticker "PG"}
+   {:ticker "HD"}
+   {:ticker "MMM"}
+   {:ticker "VZ"}
+   {:ticker "JNJ"}
+   {:ticker "UNH"}
+   {:ticker "KO"}
+   {:ticker "CSCO"}
+   {:ticker "HON"}
+   {:ticker "MCD"}
+   {:ticker "AXP"}
+   {:ticker "JPM"}
+   {:ticker "IBM"}
+   {:ticker "GS"}
+   {:ticker "DOW"}
+   {:ticker "CAT"}
+   {:ticker "NKE"}
+   {:ticker "TRV"}
+   {:ticker "DIS"}
+   {:ticker "AAPL"}])
+
+(def composite
+  [{:ticker "WMT"}
+   {:ticker "CVX"}
+   {:ticker "NSC"}
+   {:ticker "UPS"}
+   {:ticker "BA"}
+   {:ticker "KEX"}
+   {:ticker "ED"}
+   {:ticker "MMM"}
+   {:ticker "CAR"}
+   {:ticker "JNJ"}
+   {:ticker "PFE"}
+   {:ticker "UAL"}
+   {:ticker "AAL"}
+   {:ticker "XOM"}
+   {:ticker "MATX"}
+   {:ticker "CAT"}
+   {:ticker "NKE"}
+   {:ticker "EIX"}
+   {:ticker "TRV"}
+   {:ticker "AEP"}
+   {:ticker "CNP"}
+   {:ticker "ALK"}
+   {:ticker "PCG"}
+   {:ticker "DD"}
+   {:ticker "AES"}
+   {:ticker "UTX"}
+   {:ticker "CSCO"}
+   {:ticker "NI"}
+   {:ticker "FE"}
+   {:ticker "AAPL"}])
+
+(def transportation
+  [{:ticker "EXPD"}
+   {:ticker "FDX"}
+   {:ticker "NSC"}
+   {:ticker "KSU"}
+   {:ticker "UPS"}
+   {:ticker "KEX"}
+   {:ticker "CAR"}
+   {:ticker "LSTR"}
+   {:ticker "UNP"}
+   {:ticker "CSX"}
+   {:ticker "JBLU"}
+   {:ticker "UAL"}
+   {:ticker "CHRW"}
+   {:ticker "JBHT"}
+   {:ticker "AAL"}
+   {:ticker "MATX"}
+   {:ticker "LUV"}
+   {:ticker "DAL"}
+   {:ticker "ALK"}
+   {:ticker "R"}])
+
+(def utility
+  [{:ticker "ED"}
+   {:ticker "DUK"}
+   {:ticker "D"}
+   {:ticker "NEE"}
+   {:ticker "SO"}
+   {:ticker "EIX"}
+   {:ticker "NI"}
+   {:ticker "PEG"}
+   {:ticker "AEP"}
+   {:ticker "CNP"}
+   {:ticker "PCG"}
+   {:ticker "AWK"}
+   {:ticker "FE"}
+   {:ticker "EXC"}
+   {:ticker "AES"}])
