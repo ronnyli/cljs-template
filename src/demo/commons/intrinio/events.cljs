@@ -48,7 +48,7 @@
         (when (and values fields)
           {:http-xhrio {:method          :post
                         :uri             "https://api-v2.intrinio.com/securities/screen?page_size=10000"
-                        :headers         {"public-Key" "0dacd891584d2052532d20edcabe5dbf"}
+                        :headers         {"public-Key" "b4480e046ab6d941231510fc98ef2361"}
                         :timeout         25000
                         :body            (-> screener
                                              intrinio.utils/generate-request-map
@@ -105,7 +105,7 @@
   (fn [_ [_ ticker]]
     {:http-xhrio {:method          :get
                   :uri             (str "https://api-v2.intrinio.com/securities/" ticker)
-                  :headers         {"public-Key" "0dacd891584d2052532d20edcabe5dbf"}
+                  :headers         {"public-Key" "b4480e046ab6d941231510fc98ef2361"}
                   :timeout         25000
                   :format          (ajax/json-request-format)
                   :response-format (ajax/json-response-format {:keywords? true})
@@ -155,7 +155,7 @@
   (fn [_ [_ ticker]]
     {:http-xhrio {:method          :get
                   :uri             (str "https://api-v2.intrinio.com/securities/" ticker "/data_point/adj_close_price/number")
-                  :headers         {"public-Key" "0dacd891584d2052532d20edcabe5dbf"}
+                  :headers         {"public-Key" "b4480e046ab6d941231510fc98ef2361"}
                   :params          {:page_size 1}
                   :timeout         25000
                   :format          (ajax/json-request-format)
@@ -168,7 +168,7 @@
   (fn [_ [_ ticker]]
       {:http-xhrio {:method          :get
                     :uri             (str "https://api-v2.intrinio.com/securities/" ticker "/data_point/security_type/text")
-                    :headers         {"public-Key" "0dacd891584d2052532d20edcabe5dbf"}
+                    :headers         {"public-Key" "b4480e046ab6d941231510fc98ef2361"}
                     :params          {:page_size 1}
                     :timeout         25000
                     :format          (ajax/json-request-format)
@@ -205,7 +205,7 @@
   (fn [_ [_ symbol]]
       {:http-xhrio {:method          :get
                     :uri             (str "https://api-v2.intrinio.com/securities/search?query=" symbol)
-                    :headers         {"public-Key" "0dacd891584d2052532d20edcabe5dbf"}
+                    :headers         {"public-Key" "b4480e046ab6d941231510fc98ef2361"}
                     :timeout         25000
                     :response-format (ajax/json-response-format {:keywords? true})
                     :on-success      [:success-search-securities]
@@ -248,7 +248,7 @@
   (fn [_ [_ {:keys [key]}]]
     {:http-xhrio {:method          :get
                   :uri             "https://api-v2.intrinio.com/indices/stock_market"
-                  :headers         {"public-Key" "0dacd891584d2052532d20edcabe5dbf"}
+                  :headers         {"public-Key" "b4480e046ab6d941231510fc98ef2361"}
                   :params          {:page_size 100}
                   :timeout         25000
                   :response-format (ajax/json-response-format {:keywords? true})
