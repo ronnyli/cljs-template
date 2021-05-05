@@ -1,49 +1,73 @@
-;   Copyrigh (c) Alan Thompson. All rights reserved.
-;   The use and distribution terms for this software are covered by the Eclipse Public License 1.0
-;   (http://opensource.org/licenses/eclipse-1.0.php) which can be found in the file epl-v10.html at
-;   the root of this distribution.  By using this software in any fashion, you are agreeing to be
-;   bound by the terms of this license.  You must not remove this notice, or any other, from this
-;   software.
 (ns
-  ^:figwheel-hooks ; metadata tells Figwheel.Main to find & call reload hook fn's are present
   demo.core
   (:require
-    [tupelo.core :as t]
     [reagent.core :as r]
     [reagent.dom :as rdom]
     ))
 
-(defn add2
-  "adds 2 numbers"
-  [x y]
-  (+ x y))
+(defn task-description []
+  [:div
+    [:p "This page contains an input field and a button."]
+    [:p "Clicking Submit will display the submitted value on the screen."]
+    [:p
+      [:span "Please modify the code such that it matches the "]
+      [:a {:class "text-blue-600" :target "_blank" :href "https://www.figma.com/file/uLi16y671HfCp4FNrPB6HA/UX-Dev-Test?node-id=0%3A1"}
+        "Figma design"]
+      [:span " and provides a better user experience."]]])
 
-; NOTE:  it seems this must be in a *.cljs file or it doesn't work on figwheel reloading
-(enable-console-print!)
-(println "
-  This text is printed from src/demo/core.cljs when it is loaded/reloaded.
-  Go ahead and edit it and see reloading in action. Again, or not.
-  ")
-(t/spyx :something (+ 2 3))
-(t/spyx (add2 3 4))
+(defn tabs
+  "Tabs don't do anything but you can style them like in the Figma doc"
+  []
+  [:div
+    [:div "Tab 1"]
+    [:div "Tab 2"]])
 
-;---------------------------------------------------------------------------------------------------
-(defn root []
-  [:div {:class "container"}
-   [:hr]
+(defn dollar-input [input-val submit-val]
+  [:div
+   "$"
+   [:input
+    {:type :text
+     :value @input-val
+     :on-change (fn [e]
+                  (let [val (-> e .-target .-value)]
+                    (when (re-matches  #"[0-9.]+" val) ;; More rigorous validation in the future
+                      (reset! input-val val))))
+     :min 0}]
    [:div
-    [:p "I am a component!"]
-    [:p.someclass
-     "I have " [:strong "bold"]
-     [:span {:style {:color "red"}} " and red"] " text."]]
-   [:hr]
-   [:div
-    [:p "Last paragraph....."]]])
+    {:class "text-blue-700"
+      :on-click (fn [e]
+                      (reset! submit-val @input-val)
+                      (.preventDefault e))}
+    "Submit"]])
+
+(defn submitted-value-output [dollar-val]
+  [:div
+    "The value you entered"
+    [:br]
+    "Title"
+    "Value"
+    [:div
+      "VAL"
+      "Company Title"]
+    [:span "$" dollar-val]])
+
+(defn root
+  "You shouldn't need to mess with this component too much."
+  []
+  (r/with-let
+    [dollars (r/atom 1000)
+     submitted-dollars (r/atom nil)]
+    [:div
+      [task-description]
+      [:br]
+      [tabs]
+      [:br]
+      [dollar-input dollars submitted-dollars]
+      [:br]
+      (when @submitted-dollars [submitted-value-output @submitted-dollars])]))
 
 (defn app-start!
   "Initiates the cljs application"
   []
-  (println "app-start - enter")
-  (rdom/render [root] (js/document.getElementById "tgt-div"))
-  (println "app-start - leave"))
+  (rdom/render [root] (js/document.getElementById "tgt-div")))
 
